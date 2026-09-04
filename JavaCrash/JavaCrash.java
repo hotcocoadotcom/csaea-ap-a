@@ -47,15 +47,41 @@ public class JavaCrash {
         // logical operatior
         // ! && ||
 
-        boolean e = false; boolean f = true;
+        boolean f = false; boolean t = true;
 
-        System.out.println(!e); //true
-        System.out.println(e && f); //false
-        System.out.println(e || f); //true
-        System.out.println(e || f && !e); //true
+        System.out.println(!f); //true
+        System.out.println(f && t); //false
+        System.out.println(f || t); //true
+        System.out.println(f || t && !f); //true
+
+        int g = (int)5.5;
+
+        System.out.println(g);
+
+        double h = (double)5/6;
+
+        System.out.println(h);
 
 
 
+        String s1 = "good afternoon,";
+        String s2 = " good evening, ";
+        s2 += "and goodnight";
+        System.out.println(s1 + s2);
+
+        int[] arry1 = new int[10];
+
+        System.out.println(arry1);
+        System.out.println("length: " + arry1.length);
+
+        arry1[0] = 11;
+        arry1[1] = 2;
+
+        System.out.println("Remainder: "+ arry1[0] % arry1[1]);
+
+        int[] arry2 = {34, 52, 3, 64, 32};
+
+        int[][] arryGrid1 = new int[4][3];
 
 
     }

@@ -1,0 +1,152 @@
+import module java.base;
+public class Vehicle
+{
+    // instance variables
+    private String type; // Can be type "car" "sportscar" "truck" "motorcycle"
+    private String color; // red, orange, yellow, green, blue, purple, white, black
+    private double[] location; // X, Y
+    private double speed; //
+    private int[] passengers = {0, 0, 0, 0}; // passenger 0 is the driver
+    private int maxPassengers;
+    private boolean isDestroyed;
+    private static int handleCounter = 0;
+    public final int handle; //essentially an ID
+    private double vehicleHealth; // from 0-1
+
+    public Vehicle(String type, String color, double[] location)
+    {
+        this.type = type;
+        this.color = color;
+        this.location = location;
+
+        if(type.equalsIgnoreCase("car"))
+        {
+            speed = 2.5;
+            maxPassengers = 4;
+        }
+        else if(type.equalsIgnoreCase("sportscar"))
+        {
+            speed = 4.0;
+            maxPassengers = 2;
+        }
+        else if(type.equalsIgnoreCase("truck"))
+        {
+            speed = 1.5;
+            maxPassengers = 4;
+        }
+        else if(type.equalsIgnoreCase("motorcycle"))
+        {
+            speed = 3.0;
+            maxPassengers = 2;
+        }
+
+        passengers = new int[4];
+        isDestroyed = false;
+        vehicleHealth = 1.0;
+        handle = handleCounter;
+        handleCounter++;
+        System.out.println("created car at "+handle);
+    }
+
+    public void moveForward(double[] direction) // direction can only be from 0-1
+    {
+        location[0] += direction[0] * speed;
+        location[1] += direction[1] * speed;
+
+        System.out.println("Vehicle now at: " + location[0] + ", " + location[1]);
+    }
+
+    public void moveReverse(double[] direction)
+    {
+        location[0] -= direction[0] * speed;
+        location[1] -= direction[1] * speed;
+        System.out.println("Vehicle now at: " + location[0] + ", " + location[1]);
+    }
+
+    public double getVehicleHealth()
+    {
+        System.out.println("Vehicle Health: " + vehicleHealth);
+        return vehicleHealth;
+    }
+
+    public double setVehicleHealth(double healthSet)
+    {
+        vehicleHealth = healthSet;
+        System.out.println("New Vehicle Health: " + vehicleHealth);
+        return vehicleHealth;
+    }
+
+    public void enterVehicle(int enterHandle)
+    {
+        for(int i=0; i<maxPassengers; i++)
+        {
+            if(passengers[i] == 0)
+            {
+                passengers[i] = enterHandle;
+                System.out.println("handle "+enterHandle+" has entered "+handle+" in spot "+i);
+                return;
+            }
+            else
+            {
+                System.out.println("spot "+i+" is taken by "+passengers[i]);
+            }
+            
+        }
+        System.out.println("vehicle full");
+    }
+
+    public void exitVehicle(int exitHandle)
+    {
+        for(int i=0; i<maxPassengers; i++)
+        {
+            if(passengers[i] == exitHandle)
+            {
+                passengers[i] = 0;
+                System.out.println("handle "+exitHandle+" has exited "+handle+" in spot "+i);
+                return;
+            }
+            else
+            {
+                System.out.println("spot "+i+" is taken by "+passengers[i]);
+            }
+            
+        }
+        System.out.println("passenger is not in vehicle");
+    }
+
+    public int[] getPassengers()
+    {
+        for(int i=0; i<4; i++)
+        {
+            System.out.println("slot "+i+" has "+passengers[i]);
+        }
+
+        return passengers;
+    }
+}
+Vehicle one = new Vehicle("car", "white", new double[]{10.0, 5.0});
+Vehicle two = new Vehicle("sportscar", "green", new double[]{-10.0, 5.0});
+Vehicle three = new Vehicle("motorcycle", "purple", new double[]{15.0, 75.0});
+Vehicle four = new Vehicle("truck", "red", new double[]{4.0, 54.0});
+Vehicle five = new Vehicle("car", "orange", new double[]{12.0, 34.0});
+one.type
+one.color
+one.location
+one.speed
+one.passengers
+one.maxPassengers
+one.isDestroyed
+one.handleCounter
+one.handle
+one.vehicleHealth
+one.moveForward(new double[]{1,0})
+two.moveReverse(new double[]{0, -1})
+three.getVehicleHealth()
+three.setVehicleHealth(0.45)
+four.enterVehicle(234)
+four.getPassengers
+four.getPassengers()
+four.enterVehicle(853)
+four.enterVehicle(365)
+four.exitVehicle(853)
+four.getPassengers()

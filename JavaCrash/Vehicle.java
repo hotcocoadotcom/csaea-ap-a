@@ -45,34 +45,36 @@ public class Vehicle
         vehicleHealth = 1.0;
         handle = handleCounter;
         handleCounter++;
-        System.out.println("created car at "+handle);
+        System.out.println("created vehicle at "+handle);
     }
 
-    public void moveForward(double[] direction) // direction can only be from 0-1
+    public void moveForward(double dirX, double dirY) // direction can only be from 0-1
     {
-        location[0] += direction[0] * speed;
-        location[1] += direction[1] * speed;
+        location[0] += dirX * speed;
+        location[1] += dirY * speed;
 
         System.out.println("Vehicle now at: " + location[0] + ", " + location[1]);
+        System.out.println();
     }
 
-    public void moveReverse(double[] direction)
+    public void moveReverse(double dirX, double dirY)
     {
-        location[0] -= direction[0] * speed;
-        location[1] -= direction[1] * speed;
+        location[0] -= dirX * speed;
+        location[1] -= dirY * speed;
         System.out.println("Vehicle now at: " + location[0] + ", " + location[1]);
+        System.out.println();
     }
 
     public double getVehicleHealth()
     {
-        System.out.println("Vehicle Health: " + vehicleHealth);
+        System.out.println("Vehicle Health: " + vehicleHealth+"\n");
         return vehicleHealth;
     }
 
     public double setVehicleHealth(double healthSet)
     {
         vehicleHealth = healthSet;
-        System.out.println("New Vehicle Health: " + vehicleHealth);
+        System.out.println("New Vehicle Health: " + vehicleHealth+"\n");
         return vehicleHealth;
     }
 
@@ -83,7 +85,7 @@ public class Vehicle
             if(passengers[i] == 0)
             {
                 passengers[i] = enterHandle;
-                System.out.println("handle "+enterHandle+" has entered "+handle+" in spot "+i);
+                System.out.println("handle "+enterHandle+" has entered "+handle+" in spot "+i+"\n");
                 return;
             }
             else
@@ -92,7 +94,8 @@ public class Vehicle
             }
             
         }
-        System.out.println("vehicle full");
+        System.out.println("vehicle full\n");
+        
     }
 
     public void exitVehicle(int exitHandle)
@@ -102,7 +105,7 @@ public class Vehicle
             if(passengers[i] == exitHandle)
             {
                 passengers[i] = 0;
-                System.out.println("handle "+exitHandle+" has exited "+handle+" in spot "+i);
+                System.out.println("handle "+exitHandle+" has exited "+handle+" in spot "+i+"\n");
                 return;
             }
             else
@@ -111,7 +114,7 @@ public class Vehicle
             }
             
         }
-        System.out.println("passenger is not in vehicle");
+        System.out.println("passenger is not in vehicle\n");
     }
 
     public int[] getPassengers()
@@ -120,7 +123,7 @@ public class Vehicle
         {
             System.out.println("slot "+i+" has "+passengers[i]);
         }
-
+        System.out.println();
         return passengers;
     }
 }

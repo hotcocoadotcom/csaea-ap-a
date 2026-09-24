@@ -13,6 +13,7 @@ public class LaserGunTester {
         System.out.println();
 
         gun1.getColor();
+        gun1.getAmmoAmount();
 
         System.out.println();
 

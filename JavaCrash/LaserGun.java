@@ -1,3 +1,5 @@
+
+
 public class LaserGun {
     private String color;
     private int ammo;
@@ -85,7 +87,7 @@ public class LaserGun {
         }
     }
 
-    public void refillAmmo(double amount)
+    public void refillAmmo(int amount)
     {
         if (!isBroken)
         {
@@ -103,15 +105,45 @@ public class LaserGun {
         return ammo;
     }
 
-    public double getHealth()
+    public int getHealth()
     {
         System.out.println("you have "+health+" health for laser gun");
         return health;
+    }
+
+    public double getStrength()
+    {
+        System.out.println("you have "+strength+" strength for laser gun");
+        return strength;
     }
 
     public String getColor()
     {
         System.out.println("the laser gun is "+color);
         return color;
+    }
+
+    public void setAmmoAmount(int amount)
+    {
+        System.out.println("you have directly set the ammo to "+amount);
+        ammo = amount;
+    }
+
+    public void setStrength(double amount)
+    {
+        System.out.println("you have directly set the strength to "+amount);
+        strength = amount;
+    }
+
+    public void setColor(String newColor)
+    {
+        System.out.println("you have directly set the color to "+newColor);
+        color = newColor;
+    }
+
+    public void setHealth(int amount)
+    {
+        System.out.println("you have directly set the health to "+amount);
+        health = amount;
     }
 }

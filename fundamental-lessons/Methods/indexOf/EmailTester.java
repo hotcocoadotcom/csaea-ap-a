@@ -8,8 +8,8 @@ public class EmailTester {
         System.out.println(word.indexOf("z"));
         System.out.println(word.indexOf("B"));
 
-        Email michael = new Email("mharrell@nhvweb.net");
         Email jojo = new Email("jojo@nhvweb.net");
+        Email michael = new Email("michael.harrell@hcvsd.org");
 
         System.out.println(michael);
 
@@ -20,5 +20,17 @@ public class EmailTester {
         System.out.println(jojo.getUser());
 
         System.out.println(michael.getDomain());
+
+        System.out.println(michael.getFirstName());
+
+        jojo.changeDomain("gmail.com");
+
+        System.out.println(jojo);
+
+        System.out.println(michael.getLabel());
+        System.out.println(jojo.getLabel());
+
+        System.out.println(michael.isStaffFormat());
+        System.out.println(jojo.isStaffFormat());
     }
 }
